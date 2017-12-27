@@ -16,6 +16,7 @@ import UIKit
 open class SwipeTableViewCell: UITableViewCell {
     /// The object that acts as the delegate of the `SwipeTableViewCell`.
     public weak var delegate: SwipeTableViewCellDelegate?
+    public var bottomOffset: CGFloat = 0.0
     
     var animator: SwipeAnimator?
 
@@ -243,7 +244,9 @@ open class SwipeTableViewCell: UITableViewCell {
         
         addSubview(actionsView)
 
-        actionsView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        actionsView.heightAnchor.constraint(equalTo: heightAnchor,
+                                            multiplier: 1.0,
+                                            constant: bottomOffset).isActive = true
         actionsView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 2).isActive = true
         actionsView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         
