@@ -52,4 +52,13 @@ extension SwipeTableViewCell {
     public func setSwipeOffset(_ offset: CGFloat, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
         swipeController.setSwipeOffset(offset, animated: animated, completion: completion)
     }
+    
+    public var bottomOffset: CGFloat {
+        get {
+            return swipeController.bottomOffset
+        }
+        set {
+            swipeController.bottomOffset = newValue
+        }
+    }
 }

@@ -37,6 +37,7 @@ class SwipeController: NSObject {
     var animator: SwipeAnimator?
     
     let elasticScrollRatio: CGFloat = 0.4
+    var bottomOffset: CGFloat = 0.0
     
     var originalCenter: CGFloat = 0
     var scrollRatio: CGFloat = 1.0
@@ -222,7 +223,7 @@ class SwipeController: NSObject {
         
         actionsContainerView.addSubview(actionsView)
         
-        actionsView.heightAnchor.constraint(equalTo: swipeable.heightAnchor).isActive = true
+        actionsView.heightAnchor.constraint(equalTo: swipeable.heightAnchor, constant: bottomOffset).isActive = true
         actionsView.widthAnchor.constraint(equalTo: swipeable.widthAnchor, multiplier: 2).isActive = true
         actionsView.topAnchor.constraint(equalTo: swipeable.topAnchor).isActive = true
         
